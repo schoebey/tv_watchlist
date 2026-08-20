@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0057)https://schoebey.github.io/tv_watchlist/tv_watchlist.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IMDb Watchlist TV Tracker</title>
     <style>
@@ -179,6 +179,17 @@
         .card-running .status { background-color: rgba(59, 130, 246, 0.25); color: #60a5fa; }
         .card-ended .status { background-color: rgba(239, 68, 68, 0.25); color: #f87171; }
         .card-tbd .status { background-color: rgba(156, 163, 175, 0.25); color: #d1d5db; }
+        .card-upcoming .status.premiere { 
+            background-color: rgba(245, 158, 11, 0.25); 
+            color: #fbbf24; /* A bright gold/amber */
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+        .status-wrapper {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-top: 0.2rem;
+        }
 
         .next-date { font-weight: 500; text-align: right; font-size: 0.85rem; color: #e5e7eb; padding-top: 0.1rem; margin-left: 1rem; flex-shrink: 0; text-shadow: 0 1px 4px rgba(0,0,0,0.9); }
         .no-date { color: #9ca3af; }
@@ -226,7 +237,7 @@
         body.edit-mode-active .show-card { border-color: #4b5563; }
         
     </style>
-</head>
+<style type="text/css"></style></head>
 <body>
 
 <div class="container">
@@ -240,15 +251,15 @@
                 </select>
                 <input type="text" id="searchUrlInput" placeholder="Custom Search URL (e.g. https://.../search/)">
                 <button class="default-btn" id="startEditBtn">Edit List</button>
-                <button class="default-btn" id="exportBtn" style="display: none;">Export CSV</button>
-                <button class="default-btn" onclick="clearData()" id="clearBtn" style="display: none;">Clear All</button>
+                <button class="default-btn" id="exportBtn" style="display: inline-block;">Export CSV</button>
+                <button class="default-btn" onclick="clearData()" id="clearBtn" style="display: inline-block;">Clear All</button>
             </div>
         </div>
         
         <div class="edit-controls" id="editControls">
             <div class="autocomplete-wrapper">
                 <input type="text" id="addShowInput" placeholder="Search to add a show..." autocomplete="off">
-                <ul class="autocomplete-results" id="autocompleteResults"></ul>
+                <ul class="autocomplete-results" id="autocompleteResults" style="display: none;"></ul>
             </div>
             <button class="save-btn" id="saveEditBtn">Save Changes</button>
             <button class="cancel-btn" id="cancelEditBtn">Cancel</button>
@@ -261,28 +272,856 @@
         <input type="file" id="fileInput" accept=".csv" style="display: none;">
     </div>
 
-    <div id="status-text">Waiting for data...</div>
+    <div id="status-text">Results (46 TV shows tracked)</div>
     
     <div id="sections-wrapper">
-        <div id="sec-upcoming" class="status-section">
+        <div id="sec-upcoming" class="status-section" style="display: block;">
             <h2>Upcoming Episodes</h2>
-            <div class="cards-grid"></div>
+            <div class="cards-grid"><div class="show-card card-upcoming" data-title="star trek: strange new worlds" data-nexttime="1787227200000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/635/1589217.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Star Trek: Strange New Worlds"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Star Trek: Strange New Worlds</h3>
+                        <div class="status">S04E05: "Level-Five Transporter Accident"</div>
+                    </div>
+                    <div class="next-date">
+                        Thu, 20 Aug 2026<br><span class="relative-time">Today</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt12327578/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Star%20Trek%3A%20Strange%20New%20Worlds" data-title="Star Trek: Strange New Worlds" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-upcoming" data-title="stuart fails to save the universe" data-nexttime="1787227200000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/633/1584491.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Stuart Fails to Save the Universe"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Stuart Fails to Save the Universe</h3>
+                        <div class="status">S01E05: "Spoiler: Gary Works for UPS"</div>
+                    </div>
+                    <div class="next-date">
+                        Thu, 20 Aug 2026<br><span class="relative-time">Today</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt27497393/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Stuart%20Fails%20to%20Save%20the%20Universe" data-title="Stuart Fails to Save the Universe" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-upcoming" data-title="silo" data-nexttime="1787313600000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/631/1577677.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Silo"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Silo</h3>
+                        <div class="status">S03E08: "Gray Goo"</div>
+                    </div>
+                    <div class="next-date">
+                        Fri, 21 Aug 2026<br><span class="relative-time">Tomorrow</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt14688458/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Silo" data-title="Silo" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-upcoming" data-title="futurama" data-nexttime="1787587200000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/633/1584696.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Futurama"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Futurama</h3>
+                        <div class="status">S14E05: "The Charm Offensive"</div>
+                    </div>
+                    <div class="next-date">
+                        Mon, 24 Aug 2026<br><span class="relative-time">In 4 days</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt0149460/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Futurama" data-title="Futurama" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-upcoming" data-title="south park" data-nexttime="1789610400000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/594/1485766.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="South Park"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>South Park</h3>
+                        <div class="status">S29E01: "TBA"</div>
+                    </div>
+                    <div class="next-date">
+                        Thu, 17 Sept 2026<br><span class="relative-time">In 4 weeks</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt0121955/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/South%20Park" data-title="South Park" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-upcoming" data-title="the simpsons" data-nexttime="1790553600000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/588/1471731.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="The Simpsons"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>The Simpsons</h3>
+                        <div class="status">S38E01: "The Children's Book Job"</div>
+                    </div>
+                    <div class="next-date">
+                        Mon, 28 Sept 2026<br><span class="relative-time">In a month</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt0096697/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/The%20Simpsons" data-title="The Simpsons" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-upcoming" data-title="the lord of the rings: the rings of power" data-nexttime="1794398400000" data-prevtime="0">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/633/1584401.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="The Lord of the Rings: The Rings of Power"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>The Lord of the Rings: The Rings of Power</h3>
+                        <div class="status">S03E01: "TBA"</div>
+                    </div>
+                    <div class="next-date">
+                        Wed, 11 Nov 2026
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt7631058/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/The%20Lord%20of%20the%20Rings%3A%20The%20Rings%20of%20Power" data-title="The Lord of the Rings: The Rings of Power" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div></div>
         </div>
-        <div id="sec-running" class="status-section">
+        <div id="sec-running" class="status-section" style="display: block;">
             <h2>Running (No scheduled dates)</h2>
-            <div class="cards-grid"></div>
+            <div class="cards-grid"><div class="show-card card-running" data-title="house of the dragon" data-nexttime="0" data-prevtime="1786323600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/627/1568449.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="House of the Dragon"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>House of the Dragon</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Mon, 10 Aug 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt11198330/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/House%20of%20the%20Dragon" data-title="House of the Dragon" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="for all mankind" data-nexttime="0" data-prevtime="1780056000000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/616/1541416.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="For All Mankind"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>For All Mankind</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Fri, 29 May 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt7772588/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/For%20All%20Mankind" data-title="For All Mankind" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="the pitt" data-nexttime="0" data-prevtime="1776340800000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/606/1516776.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="The Pitt"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>The Pitt</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Thu, 16 Apr 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt31938062/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/The%20Pitt" data-title="The Pitt" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="a knight of the seven kingdoms" data-nexttime="0" data-prevtime="1771815900000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/608/1521912.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="A Knight of the Seven Kingdoms"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>A Knight of the Seven Kingdoms</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Mon, 23 Feb 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt27497448/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/A%20Knight%20of%20the%20Seven%20Kingdoms" data-title="A Knight of the Seven Kingdoms" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="fallout" data-nexttime="0" data-prevtime="1770120000000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/599/1499142.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Fallout"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Fallout</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Tue, 3 Feb 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt12637874/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Fallout" data-title="Fallout" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="pluribus" data-nexttime="0" data-prevtime="1766577600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/592/1481086.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Pluribus"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Pluribus</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Wed, 24 Dec 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt22202452/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Pluribus" data-title="Pluribus" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="emily in paris" data-nexttime="0" data-prevtime="1766059200000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/604/1510920.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Emily in Paris"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Emily in Paris</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Thu, 18 Dec 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt8962124/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Emily%20in%20Paris" data-title="Emily in Paris" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="it: welcome to derry" data-nexttime="0" data-prevtime="1765764000000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/594/1485959.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="It: Welcome to Derry"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>IT: Welcome to Derry</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Mon, 15 Dec 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt19244304/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/IT%3A%20Welcome%20to%20Derry" data-title="IT: Welcome to Derry" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="foundation" data-nexttime="0" data-prevtime="1757678400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/573/1433544.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Foundation"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Foundation</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Fri, 12 Sept 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt0804484/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Foundation" data-title="Foundation" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="wednesday" data-nexttime="0" data-prevtime="1756900800000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/586/1466410.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Wednesday"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Wednesday</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Wed, 3 Sept 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt13443470/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Wednesday" data-title="Wednesday" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="the institute" data-nexttime="0" data-prevtime="1756083600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/578/1445857.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="The Institute"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>The Institute</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Mon, 25 Aug 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt10946316/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/The%20Institute" data-title="The Institute" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="murderbot" data-nexttime="0" data-prevtime="1752235200000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/563/1408093.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Murderbot"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Murderbot</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt30444310/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Murderbot" data-title="Murderbot" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="yellowjackets" data-nexttime="0" data-prevtime="1744372800000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/554/1387457.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Yellowjackets"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Yellowjackets</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt11041332/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Yellowjackets" data-title="Yellowjackets" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="black mirror" data-nexttime="0" data-prevtime="1744286400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/564/1411764.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Black Mirror"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Black Mirror</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt2085059/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Black%20Mirror" data-title="Black Mirror" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="the white lotus" data-nexttime="0" data-prevtime="1743987600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/557/1393876.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="The White Lotus"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>The White Lotus</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt13406094/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/The%20White%20Lotus" data-title="The White Lotus" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="severance" data-nexttime="0" data-prevtime="1742558400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/548/1371406.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Severance"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Severance</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt11280740/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Severance" data-title="Severance" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="sweetpea" data-nexttime="0" data-prevtime="1728561600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/537/1343344.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Sweetpea"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Sweetpea</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt11218290/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Sweetpea" data-title="Sweetpea" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="delicious in dungeon" data-nexttime="0" data-prevtime="1718285400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/515/1289739.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Delicious in Dungeon"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Delicious in Dungeon</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt21621494/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Delicious%20in%20Dungeon" data-title="Delicious in Dungeon" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="3 body problem" data-nexttime="0" data-prevtime="1711022400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/507/1268925.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="3 Body Problem"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>3 Body Problem</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt13016388/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/3%20Body%20Problem" data-title="3 Body Problem" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-running" data-title="vinland saga" data-nexttime="0" data-prevtime="1687188600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/508/1270295.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Vinland Saga"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Vinland Saga</h3>
+                        <div class="status">Status: Running</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt10233448/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Vinland%20Saga" data-title="Vinland Saga" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div></div>
         </div>
-        <div id="sec-tbd" class="status-section">
+        <div id="sec-tbd" class="status-section" style="display: block;">
             <h2>To Be Determined</h2>
-            <div class="cards-grid"></div>
+            <div class="cards-grid"><div class="show-card card-tbd" data-title="frieren: beyond journey&#39;s end" data-nexttime="0" data-prevtime="1774627200000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/479/1198409.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Frieren: Beyond Journey&#39;s End"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Frieren: Beyond Journey's End</h3>
+                        <div class="status">Status: To Be Determined</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Fri, 27 Mar 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt22248376/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Frieren%3A%20Beyond%20Journey&#39;s%20End" data-title="Frieren: Beyond Journey&#39;s End" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-tbd" data-title="campfire cooking in another world with my absurd skill" data-nexttime="0" data-prevtime="1766502000000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/637/1593403.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Campfire Cooking in Another World with My Absurd Skill"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Campfire Cooking in Another World with My Absurd Skill</h3>
+                        <div class="status">Status: To Be Determined</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Tue, 23 Dec 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt24229160/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Campfire%20Cooking%20in%20Another%20World%20with%20My%20Absurd%20Skill" data-title="Campfire Cooking in Another World with My Absurd Skill" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-tbd" data-title="invasion" data-nexttime="0" data-prevtime="1761307200000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/589/1473271.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Invasion"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Invasion</h3>
+                        <div class="status">Status: To Be Determined</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Fri, 24 Oct 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt9737326/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Invasion" data-title="Invasion" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-tbd" data-title="love, death &amp; robots" data-nexttime="0" data-prevtime="1747310400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/501/1253559.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Love, Death &amp; Robots"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Love, Death &amp; Robots</h3>
+                        <div class="status">Status: To Be Determined</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt9561862/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Love%2C%20Death%20%26%20Robots" data-title="Love, Death &amp; Robots" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-tbd" data-title="side quest" data-nexttime="0" data-prevtime="1742990400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/554/1385665.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Side Quest"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Side Quest</h3>
+                        <div class="status">Status: To Be Determined</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt24512588/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Side%20Quest" data-title="Side Quest" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div></div>
         </div>
-        <div id="sec-ended" class="status-section">
+        <div id="sec-ended" class="status-section" style="display: block;">
             <h2>Ended</h2>
-            <div class="cards-grid"></div>
+            <div class="cards-grid"><div class="show-card card-ended" data-title="the bear" data-nexttime="0" data-prevtime="1782403200000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/629/1574642.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="The Bear"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>The Bear</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Thu, 25 Jun 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt14452776/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/The%20Bear" data-title="The Bear" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="lord of the flies" data-nexttime="0" data-prevtime="1770530400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/612/1531781.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Lord of the Flies"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Lord of the Flies</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Sun, 8 Feb 2026</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt27557666/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Lord%20of%20the%20Flies" data-title="Lord of the Flies" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="stranger things" data-nexttime="0" data-prevtime="1767182400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/595/1489169.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Stranger Things"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Stranger Things</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Wed, 31 Dec 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt4574334/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Stranger%20Things" data-title="Stranger Things" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="upload" data-nexttime="0" data-prevtime="1756123200000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/586/1466414.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Upload"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Upload</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        Last aired:<br><span class="relative-time">Mon, 25 Aug 2025</span>
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt7826376/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Upload" data-title="Upload" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="mythic quest" data-nexttime="0" data-prevtime="1744977600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/564/1412475.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Mythic Quest"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Mythic Quest</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt8879940/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Mythic%20Quest" data-title="Mythic Quest" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="cobra kai" data-nexttime="0" data-prevtime="1739448000000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/536/1340290.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Cobra Kai"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Cobra Kai</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt7221388/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Cobra%20Kai" data-title="Cobra Kai" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="shuumatsu train doko e iku?" data-nexttime="0" data-prevtime="1719230400000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/508/1271062.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Train to the End of the World"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Shuumatsu Train Doko e Iku?</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt31975747/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Shuumatsu%20Train%20Doko%20e%20Iku%3F" data-title="Shuumatsu Train Doko e Iku?" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="disenchantment" data-nexttime="0" data-prevtime="1693569600000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/156/391231.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Disenchantment"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Disenchantment</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt5363918/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Disenchantment" data-title="Disenchantment" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="para//èles" data-nexttime="0" data-prevtime="1648036800000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/394/986049.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Parallels"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Para//èles</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt3479316/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Para%2F%2F%C3%A8les" data-title="Para//èles" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="restaurant to another world" data-nexttime="0" data-prevtime="1639758900000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/114/286112.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Restaurant to Another World"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Restaurant to Another World</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt7224994/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Restaurant%20to%20Another%20World" data-title="Restaurant to Another World" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card card-ended" data-title="silicon valley" data-nexttime="0" data-prevtime="1575860700000">
+            <div class="card-bg" style="background-image: url(&#39;https://static.tvmaze.com/uploads/images/medium_portrait/215/538434.jpg&#39;);"></div>
+            <button class="delete-btn" data-title="Silicon Valley"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Silicon Valley</h3>
+                        <div class="status">Status: Ended</div>
+                    </div>
+                    <div class="next-date no-date">
+                        No upcoming episodes
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt2575988/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Silicon%20Valley" data-title="Silicon Valley" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div></div>
         </div>
-        <div id="sec-unknown" class="status-section">
+        <div id="sec-unknown" class="status-section" style="display: block;">
             <h2>Not Found / Error</h2>
-            <div class="cards-grid"></div>
+            <div class="cards-grid"><div class="show-card" data-title="isekai izakaya: japanese food from another world" data-nexttime="0" data-prevtime="0">
+            
+            <button class="delete-btn" data-title="Isekai Izakaya: Japanese Food from Another World"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Isekai Izakaya: Japanese Food from Another World</h3>
+                        <div class="status">Data not found.</div>
+                    </div>
+                    <div class="next-date no-date">
+                        N/A
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt8278998/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Isekai%20Izakaya%3A%20Japanese%20Food%20from%20Another%20World" data-title="Isekai Izakaya: Japanese Food from Another World" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card" data-title="yokohama shopping log" data-nexttime="0" data-prevtime="0">
+            
+            <button class="delete-btn" data-title="Yokohama Shopping Log"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Yokohama Shopping Log</h3>
+                        <div class="status">Data not found.</div>
+                    </div>
+                    <div class="next-date no-date">
+                        N/A
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt1160947/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Yokohama%20Shopping%20Log" data-title="Yokohama Shopping Log" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div><div class="show-card" data-title="yokohama kaidashi kikou: quiet country cafe" data-nexttime="0" data-prevtime="0">
+            
+            <button class="delete-btn" data-title="Yokohama Kaidashi Kikou: Quiet Country Cafe"></button>
+            <div class="card-content">
+                <div class="card-top">
+                    <div class="show-info">
+                        <h3>Yokohama Kaidashi Kikou: Quiet Country Cafe</h3>
+                        <div class="status">Data not found.</div>
+                    </div>
+                    <div class="next-date no-date">
+                        N/A
+                    </div>
+                </div>
+                <div class="links-container">
+                    <a href="https://www.imdb.com/title/tt1160949/" class="show-link" target="_blank" rel="noopener noreferrer">IMDb</a>
+                    <a href="https://replace.me/search/Yokohama%20Kaidashi%20Kikou%3A%20Quiet%20Country%20Cafe" data-title="Yokohama Kaidashi Kikou: Quiet Country Cafe" class="show-link dynamic-search-link" target="_blank" rel="noopener noreferrer">Search</a>
+                </div>
+            </div>
+        </div></div>
         </div>
     </div>
 </div>
@@ -655,6 +1494,8 @@
         const bgImgHtml = item.imageUrl ? `<div class="card-bg" style="background-image: url('${item.imageUrl}');"></div>` : '';
         const deleteHtml = `<button class="delete-btn" data-title="${originalTitle.replace(/"/g, '&quot;')}"></button>`;
 
+        const premiereHtml = item.isPremiere ? `<div class="status premiere">Season Premiere</div>` : '';
+
         card.innerHTML = `
             ${bgImgHtml}
             ${deleteHtml}
@@ -662,7 +1503,10 @@
                 <div class="card-top">
                     <div class="show-info">
                         <h3>${item.title}</h3>
-                        <div class="status">${item.statusText}</div>
+                        <div class="status-wrapper">
+                            <div class="status">${item.statusText}</div>
+                            ${premiereHtml}
+                        </div>
                     </div>
                     <div class="${dateClass}">
                         ${item.airDateStr}
@@ -675,8 +1519,43 @@
             </div>
         `;
 
-        targetSec.grid.appendChild(card);
-        sortSection(targetSec.grid, item.hasEpisode);
+        // NEW FIX: Insert into the correct position immediately instead of rebuilding the grid
+        const sortBy = sortSelect.value;
+        const existingCards = Array.from(targetSec.grid.children);
+        let inserted = false;
+
+        for (let i = 0; i < existingCards.length; i++) {
+            const current = existingCards[i];
+            let shouldInsertBefore = false;
+
+            if (sortBy === 'name') {
+                // Alphabetical check
+                if (card.dataset.title.localeCompare(current.dataset.title) < 0) {
+                    shouldInsertBefore = true;
+                }
+            } else {
+                // Date check
+                if (item.hasEpisode) {
+                    if (parseInt(card.dataset.nexttime) < parseInt(current.dataset.nexttime)) {
+                        shouldInsertBefore = true;
+                    }
+                } else {
+                    if (parseInt(card.dataset.prevtime) > parseInt(current.dataset.prevtime)) {
+                        shouldInsertBefore = true;
+                    }
+                }
+            }
+
+            if (shouldInsertBefore) {
+                targetSec.grid.insertBefore(card, current);
+                inserted = true;
+                break;
+            }
+        }
+
+        if (!inserted) {
+            targetSec.grid.appendChild(card);
+        }
     }
 
     async function fetchShowData(show) {
@@ -721,6 +1600,7 @@
                     imageUrl: imageUrl,
                     statusText: `S${String(epData.season).padStart(2, '0')}E${String(epData.number).padStart(2, '0')}: "${epData.name}"`,
                     hasEpisode: true,
+                    isPremiere: parseInt(epData.number) === 1, // <-- CORRECTLY PLACED HERE
                     airDateObj: airDateObj,
                     prevAirTime: 0,
                     airDateStr: dateFormatted,
@@ -753,12 +1633,13 @@
                     title: showData.name,
                     linkUrl: linkUrl,
                     imageUrl: imageUrl,
-                    statusText: `Status: ${showData.status}`,
-                    hasEpisode: false,
-                    airDateObj: null,
+                    statusText: `Status: ${showData.status}`, // <-- RESTORED
+                    hasEpisode: false, // <-- RESTORED
+                    isPremiere: false,
+                    airDateObj: null, // <-- RESTORED
                     prevAirTime: prevAirTime,
                     airDateStr: dateFormatted,
-                    statusRank: statusRank
+                    statusRank: statusRank // <-- RESTORED
                 };
             }
         } catch (error) {
@@ -778,5 +1659,6 @@
     }
 </script>
 
-</body>
-</html>
+
+
+</body></html>
